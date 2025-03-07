@@ -78,6 +78,8 @@ export default function Home() {
     { label: "Nossa Equipe", onClick: () => scrollToSection(teamRef) },
   ];
 
+  
+
   return (
     <div style={{ position: "relative" }}>
       <div className="w-full justify-center flex pt-4 sticky top-0 z-1000 h-[64px]" style={{background: "#dddddd"}}>
