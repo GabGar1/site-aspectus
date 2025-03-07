@@ -10,6 +10,7 @@ export function CarouselImg(params: ICarouselImg) {
             <Carousel style={{padding: "0px 12px"}}>
                 {images.map((image, index) => (
                     <Image
+                        alt={'img-carousel-'+index}
                         key={index + 1}
                         src={image}
                         width="100%"

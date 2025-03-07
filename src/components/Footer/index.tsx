@@ -1,3 +1,4 @@
+"use client"
 import { Flex } from "antd";
 import { ContactWrapper, Container, SocialMedia } from "./styles";
 import { EnvironmentOutlined, GoogleOutlined, InstagramOutlined, PhoneOutlined, TikTokOutlined, WhatsAppOutlined } from "@ant-design/icons";

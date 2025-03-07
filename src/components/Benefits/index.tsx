@@ -1,6 +1,5 @@
 import { ReactNode } from "react";
 import { BenefitItem } from "../BenefitItem";
-import { Flex } from "antd";
 import { Container } from "./styles";
 
 interface IBenefit {

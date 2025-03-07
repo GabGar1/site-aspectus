@@ -1,4 +1,4 @@
-import { Flex, Typography } from "antd";
+import {  Typography } from "antd";
 import { Container, ReviewCard, ReviewsWrapper, StarsWrapper } from "./styles";
 import { StarFilled } from "@ant-design/icons";
 

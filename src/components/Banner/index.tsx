@@ -1,3 +1,4 @@
+"use client"
 import { Button, Image, Typography } from "antd";
 import { Container, CtaWrapper, MediaWrapper } from "./styles";
 import { Montserrat, Lato, Inter } from "next/font/google";
@@ -46,6 +47,7 @@ export function Banner(params: IBanner) {
             </CtaWrapper>
             <MediaWrapper>
                 <Image
+                    alt="banner"
                     src={media}
                     width="100%"
                     height="100%"

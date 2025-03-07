@@ -1,5 +1,5 @@
 "use client";
-import { Button, Dropdown, Flex, Image, MenuProps, Space } from "antd";
+import { Button, Dropdown, Flex, Image, MenuProps } from "antd";
 import { Container, CustomButton } from "./styles";
 import { useEffect, useState } from "react";
 import { MenuOutlined } from "@ant-design/icons";
@@ -10,10 +10,11 @@ interface IHeader {
 
 export function Header(params: IHeader) {
     const { navItems } = params
-    const [maxWidth, setMaxWidth] = useState(window.innerWidth);
+    const [maxWidth, setMaxWidth] = useState(0);
 
     useEffect(() => {
-        setMaxWidth(window.innerWidth);
+        if (typeof window !== "undefined")
+            setMaxWidth(window.innerWidth);
     }, []);
 
     const menuItems: MenuProps["items"] = navItems.map((item) => ({
