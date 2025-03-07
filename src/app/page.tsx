@@ -78,6 +78,8 @@ export default function Home() {
     { label: "Nossa Equipe", onClick: () => scrollToSection(teamRef) },
   ];
 
+
+
   
 
   return (
