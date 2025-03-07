@@ -12,6 +12,7 @@ export function Header(params: IHeader) {
     const { navItems } = params
     const [maxWidth, setMaxWidth] = useState(0);
 
+    
     useEffect(() => {
         if (typeof window !== "undefined")
             setMaxWidth(window.innerWidth);
