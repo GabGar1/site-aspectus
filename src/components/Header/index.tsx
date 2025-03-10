@@ -29,7 +29,7 @@ export function Header(params: IHeader) {
 
     return (
         <Container>
-            <Image src="/logo_aspectus.png" preview={false} style={{ width: 140, marginBottom: 4 }} />
+            <Image src="/logo_aspectus.png" preview={false} style={{ width: 140, marginBottom: 4 }} alt="Logo"/>
             {maxWidth <= 600 ? (
                 <Dropdown menu={{ items: menuItems }} trigger={["click"]}>
                     <Button type="text" style={{ background: "black" }} icon={<MenuOutlined style={{ color: "white" }} />} />
