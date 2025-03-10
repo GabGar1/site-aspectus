@@ -7,8 +7,14 @@ export const Container = styled.div`
     height: auto;
     align-items: stretch;
     background: #dddddd;
-    margin-top: 64px;
+    margin-top: 24px;
+
+    @media screen and (max-width: 600px) {
+
+    }
 `
+
+// export const TitleTypo = styled.Typo\
 
 export const CtaWrapper = styled.div`
     display: flex;
@@ -19,6 +25,11 @@ export const CtaWrapper = styled.div`
     align-items: center;
     text-align: center;
     justify-content: center;
+    margin-bottom: 24px;
+
+    @media screen and (max-width: 600px) {
+        height: auto;
+    }
 `
 
 export const MediaWrapper = styled.div`

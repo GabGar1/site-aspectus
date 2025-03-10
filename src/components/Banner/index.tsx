@@ -1,7 +1,8 @@
 "use client"
-import { Button, Image, Typography } from "antd";
+import { Button, Image, Skeleton, Typography } from "antd";
 import { Container, CtaWrapper, MediaWrapper } from "./styles";
 import { Montserrat, Lato, Inter } from "next/font/google";
+import { useEffect, useState } from "react";
 
 const montserrat = Montserrat({
     subsets: ["latin"],
@@ -26,11 +27,27 @@ const { Title, Text } = Typography
 
 export function Banner(params: IBanner) {
     const { media } = params;
+    const [maxWidth, setMaxWidth] = useState(0);
+    const [loading, setLoading] = useState(true);
+
+
+    useEffect(() => {
+        if (typeof window !== "undefined")
+            setMaxWidth(window.innerWidth);
+
+        const timer = setTimeout(() => {
+            setLoading(false);
+        }, 500);
+
+        return () => clearTimeout(timer);
+    }, []);
+
+    if (maxWidth === 0) return null;
 
     return (
         <Container>
             <CtaWrapper>
-                <Title level={1} style={{ color: "#3b0707", fontFamily: montserrat.style.fontFamily, fontSize: 60 }}>
+                <Title level={maxWidth >= 600 ? 3 : 1} style={{ color: "#3b0707", fontFamily: montserrat.style.fontFamily, fontSize: 42 }}>
                     Mantenha seu carro seguro com uma oficina mecânica de confiança.
                 </Title>
                 <Text className="text-base" style={{ fontSize: "24px", fontFamily: lato.style.fontFamily }}>

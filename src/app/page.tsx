@@ -80,20 +80,23 @@ export default function Home() {
 
 
 
-  
+
 
   return (
     <div style={{ position: "relative" }}>
-      <div className="w-full justify-center flex pt-4 sticky top-0 z-1000 h-[64px]" style={{background: "#dddddd"}}>
+      <div className="w-full justify-center flex pt-4 sticky top-0 z-[1000] h-[64px]" style={{ background: "#dddddd" }}>
         <Header navItems={navItems} />
       </div>
       <Core>
         <Banner media="https://images.pexels.com/photos/4489749/pexels-photo-4489749.jpeg?auto=compress&cs=tinysrgb&w=600" />
         <div style={{ width: "100%", height: "150px" }} ref={benefitsRef} />
-        <Benefits benefit_info={benefits} />
+        <div className="flex flex-col items-center gap-[52px] ">
+          <Typography.Title style={{ color: "#471c1c", alignSelf: "start", marginLeft: 24 }}>Beneficios</Typography.Title>
+          <Benefits benefit_info={benefits} />
+        </div>
         <div style={{ width: "100%", height: "150px" }} ref={reviewsRef} />
         <Reviews reviews={reviews} />
-        <div className="flex flex-col items-center" ref={teamRef}>
+        <div className="flex flex-col items-center gap-[52px] mt-[150px]" ref={teamRef}>
           <Typography.Title style={{ color: "#471c1c", alignSelf: "start", marginLeft: 24 }}>Nossa equipe</Typography.Title>
           <TeamInfo
             team_info={team_info}
