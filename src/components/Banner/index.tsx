@@ -32,21 +32,19 @@ export function Banner(params: IBanner) {
    
     useEffect(() => {
         if (typeof window !== "undefined") {
-            setMaxWidth(window.innerWidth);
+          setMaxWidth(window.innerWidth);
         }
     
         const timer = setTimeout(() => {
-            setLoading(false);
+          setLoading(false);
         }, 500);
     
         return () => clearTimeout(timer);
-    }, []);
-
-    if (maxWidth === 0) return null;
-
-    if(loading) {
-        return <Skeleton active/>
-    }
+      }, []);
+    
+      if (loading || maxWidth === null) {
+        return <Skeleton active />;
+      }
 
     return (
         <Container>
