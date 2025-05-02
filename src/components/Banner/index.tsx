@@ -30,26 +30,26 @@ export function Banner(params: IBanner) {
     const [maxWidth, setMaxWidth] = useState(0);
     const [loading, setLoading] = useState(true);
    
-    useEffect(() => {
-        if (typeof window !== "undefined") {
-          setMaxWidth(window.innerWidth);
-        }
+    // useEffect(() => {
+    //     if (typeof window !== "undefined") {
+    //       setMaxWidth(window.innerWidth);
+    //     }
     
-        const timer = setTimeout(() => {
-          setLoading(false);
-        }, 500);
+    //     const timer = setTimeout(() => {
+    //       setLoading(false);
+    //     }, 500);
     
-        return () => clearTimeout(timer);
-      }, []);
+    //     return () => clearTimeout(timer);
+    //   }, []);
     
-      if (loading || maxWidth === null) {
-        return <Skeleton active />;
-      }
+    //   if (loading || maxWidth === null) {
+    //     return <Skeleton active />;
+    //   }
 
     return (
         <Container>
             <CtaWrapper>
-                <Title level={maxWidth >= 600 ? 3 : 1} style={{ color: "#3b0707", fontFamily: montserrat.style.fontFamily, fontSize: 42 }}>
+                <Title level={1} style={{ color: "#3b0707", fontFamily: montserrat.style.fontFamily, fontSize: 42 }}>
                     Mantenha seu carro seguro com uma oficina mecânica de confiança.
                 </Title>
                 <Text className="text-base" style={{ fontSize: "24px", fontFamily: lato.style.fontFamily }}>
