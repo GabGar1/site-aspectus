@@ -43,19 +43,19 @@ const reviews = [
 const team_info = [
   {
     name: "Matheus Garbrecht",
-    photo: "https://cdn.pixabay.com/photo/2017/06/05/21/26/skateboard-2375364_1280.jpg",
+    photo: "/retrato-ma.jpeg",
     info: "Matheus Garbrecht é o responsável por toda a parte financeira e organizacional da nossa oficina. Com sua expertise, ele garante que cada processo seja bem estruturado, permitindo que nossa equipe técnica foque no que faz de melhor: cuidar do seu veículo com excelência. Além de manter as finanças em dia, Matheus também trabalha para otimizar o funcionamento da oficina, garantindo um atendimento ágil, eficiente e de qualidade. Seu compromisso com a organização e planejamento reflete diretamente na experiência dos nossos clientes, tornando cada visita mais prática e satisfatória.",
     alt: "Imagem Matheus"
   },
   {
     name: "Nilton Cesar",
-    photo: "https://cdn.pixabay.com/photo/2020/04/24/18/02/man-5087967_1280.jpg",
+    photo: "/retrato-nilton.png",
     info: "Nilton é o proprietário da oficina e o responsável por toda a parte técnica. Com um conhecimento amplo na área da mecânica, adquirido ao longo de anos de experiência em diversas concessionárias, ele garante que cada serviço seja realizado com precisão e qualidade. Sua expertise permite diagnósticos assertivos e soluções eficientes, assegurando que os veículos recebam o melhor atendimento possível. Sempre atento às inovações do setor, Nilton lidera a equipe com dedicação e comprometimento, garantindo a confiança e a satisfação dos clientes.",
     alt: "Imagem Nilton"
   },
   {
     name: "Miguel Perez",
-    photo: "https://cdn.pixabay.com/photo/2022/06/27/00/07/fashion-7286505_1280.jpg",
+    photo: "/retrato-miguel.png",
     alt: "Imagem Miguel",
     info: "Miguel é o funcionário mais novo da oficina e chegou recentemente da Venezuela, trazendo consigo uma bagagem de experiência e dedicação. Com muita vontade de aprender e crescer na área, ele se destaca pelo comprometimento e pela atenção aos detalhes em cada serviço realizado. Sua determinação e habilidade contribuem para a qualidade do atendimento, agregando ainda mais valor à equipe. Sempre disposto a enfrentar novos desafios, Miguel vem se tornando uma peça fundamental no dia a dia da oficina."
   }
