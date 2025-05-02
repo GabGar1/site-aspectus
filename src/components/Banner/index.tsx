@@ -29,11 +29,7 @@ export function Banner(params: IBanner) {
     const { media } = params;
     const [maxWidth, setMaxWidth] = useState(0);
     const [loading, setLoading] = useState(true);
-
-    if(loading) {
-        return <Skeleton active/>
-    }
-
+   
     useEffect(() => {
         if (typeof window !== "undefined")
             setMaxWidth(window.innerWidth);
@@ -46,6 +42,10 @@ export function Banner(params: IBanner) {
     }, []);
 
     if (maxWidth === 0) return null;
+
+    if(loading) {
+        return <Skeleton active/>
+    }
 
     return (
         <Container>
