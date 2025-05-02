@@ -2,7 +2,6 @@
 import { Button, Image, Typography } from "antd";
 import { Container, CtaWrapper, MediaWrapper } from "./styles";
 import { Montserrat, Lato, Inter } from "next/font/google";
-// import { useEffect, useState } from "react";
 
 const montserrat = Montserrat({
     subsets: ["latin"],
@@ -27,24 +26,6 @@ const { Title, Text } = Typography
 
 export function Banner(params: IBanner) {
     const { media } = params;
-    // const [maxWidth, setMaxWidth] = useState(0);
-    // const [loading, setLoading] = useState(true);
-   
-    // useEffect(() => {
-    //     if (typeof window !== "undefined") {
-    //       setMaxWidth(window.innerWidth);
-    //     }
-    
-    //     const timer = setTimeout(() => {
-    //       setLoading(false);
-    //     }, 500);
-    
-    //     return () => clearTimeout(timer);
-    //   }, []);
-    
-    //   if (loading || maxWidth === null) {
-    //     return <Skeleton active />;
-    //   }
 
     return (
         <Container>
