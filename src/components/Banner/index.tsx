@@ -31,13 +31,14 @@ export function Banner(params: IBanner) {
     const [loading, setLoading] = useState(true);
    
     useEffect(() => {
-        if (typeof window !== "undefined")
+        if (typeof window !== "undefined") {
             setMaxWidth(window.innerWidth);
-
+        }
+    
         const timer = setTimeout(() => {
             setLoading(false);
         }, 500);
-
+    
         return () => clearTimeout(timer);
     }, []);
 
