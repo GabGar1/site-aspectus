@@ -9,6 +9,8 @@ interface IBenefitItem {
     subtitle: string
 }
 
+
+
 export function BenefitItem(params: IBenefitItem) {
     const { icon, subtitle, title } = params;
 
