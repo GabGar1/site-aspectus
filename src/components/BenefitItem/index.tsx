@@ -13,7 +13,7 @@ export function BenefitItem(params: IBenefitItem) {
     const { icon, subtitle, title } = params;
 
     return (
-        <Flex vertical gap={56} align="center">
+        <Flex vertical gap={56} align="center" style={{ maxWidth: 300 }}>
             {icon}
             <Flex vertical align="center" >
                 <Title level={2}>

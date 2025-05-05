@@ -90,7 +90,7 @@ export default function Home() {
       <Core>
         <Banner media="https://images.pexels.com/photos/4489749/pexels-photo-4489749.jpeg?auto=compress&cs=tinysrgb&w=600" />
         <div style={{ width: "100%", height: "150px" }} ref={benefitsRef} />
-        <div className="flex flex-col items-center gap-[52px] ">
+        <div className="flex flex-col items-center gap-[52px] w-full">
           <Typography.Title style={{ color: "#471c1c", alignSelf: "start", marginLeft: 24 }}>Beneficios</Typography.Title>
           <Benefits benefit_info={benefits} />
         </div>
