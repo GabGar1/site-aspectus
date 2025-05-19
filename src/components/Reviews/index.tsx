@@ -1,6 +1,7 @@
 import {  Typography } from "antd";
 import { Container, ReviewCard, ReviewsWrapper, StarsWrapper } from "./styles";
 import { StarFilled } from "@ant-design/icons";
+import { useEffect, useState } from "react";
 
 interface IReviews {
     reviews: {
@@ -14,7 +15,13 @@ const { Title, Text } = Typography;
 
 export function Reviews(params: IReviews) {
     const { reviews } = params;
+    const [index, setIndex] = useState(0)
 
+    useEffect(() => {
+        if (reviews.length > 0) {
+            setIndex(0);
+        }
+    }, [reviews]);
     return (
         <Container>
             <Title level={2} style={{ color: "white", textAlign: "center" }}>
