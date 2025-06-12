@@ -1,7 +1,6 @@
-import { Flex, Typography } from "antd";
+import { Flex } from "antd";
 import React, { ReactNode } from "react";
 
-const { Title } = Typography;
 
 interface IBenefitItem {
     icon: ReactNode,

@@ -1,7 +1,6 @@
 import { ReactNode } from "react";
 import { BenefitItem } from "../BenefitItem";
 import { BenefitsWrapper, Container } from "./styles";
-import { Typography } from "antd";
 
 interface IBenefit {
     icon: ReactNode;

@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React from 'react'
 import { StyleSheetManager } from 'styled-components'
 
 export default function StyledComponentsRegistry({
@@ -8,10 +8,7 @@ export default function StyledComponentsRegistry({
 }: {
   children: React.ReactNode
 }) {
-  const [styledComponentsStyleSheet] = useState(() => {
-    const sheet = typeof window === 'undefined' ? null : new CSSStyleSheet()
-    return sheet
-  })
+  // Removed unused styledComponentsStyleSheet state
 
   return <StyleSheetManager>{children}</StyleSheetManager>
 }

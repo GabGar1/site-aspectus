@@ -37,7 +37,7 @@ export function FormContact() {
 
     function handlePhoneChange(e: React.ChangeEvent<HTMLInputElement>) {
         const formatted = formatPhone(e.target.value);
-  setFormData({ ...formData, phone: formatted });
+        setFormData({ ...formData, phone: formatted });
     }
 
 

@@ -12,6 +12,7 @@
     "antd": "^5.23.4",
     "antd-icons": "^0.1.0-alpha.1",
     "next": "15.1.6",
+    "rc-util": "^5.44.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "styled-components": "^6.1.15"
@@ -26,5 +27,25 @@
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
-  }
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules",
+    "build",
+    "dist",
+    ".next",
+    "out",
+    "coverage",
+    "public/static",
+    "src/**/*.test.ts",
+    "src/**/*.test.tsx",
+    "src/**/__tests__/*",
+    "src/**/?(*.spec|*.test).*",
+    "src/**/*{.,_}{test,spec}.{js,jsx,ts,tsx}",
+    "src/**/*{.,_}{test,spec}.[jt]s",
+    "src/**/*{.,_}{test,spec}.[jt]sx",
+    "src/**/*{.,_}{test,spec}.[jt]sx"
+  ]
 }

@@ -1,10 +1,4 @@
-import { Montserrat } from "next/font/google";
 import styled from "styled-components";
-
-const montserrat = Montserrat({
-    subsets: ["latin"],
-    weight: "700",
-});
 
 export const Container = styled.div`
     display: flex;
