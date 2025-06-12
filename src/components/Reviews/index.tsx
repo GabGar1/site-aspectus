@@ -1,6 +1,5 @@
 import { Container, ReviewCard, ReviewsWrapper, StarsWrapper } from "./styles";
 import { StarFilled } from "@ant-design/icons";
-import { useEffect, useState } from "react";
 
 interface IReviews {
     reviews: {
