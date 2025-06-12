@@ -8,4 +8,3 @@ export * from "./BenefitItem"
 export * from "./Benefits"
 export * from "./Reviews"
 export * from './FormContact'
-export * from './Formulario'
