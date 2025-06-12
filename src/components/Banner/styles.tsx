@@ -6,7 +6,7 @@ export const Container = styled.div`
     width: 70%;
     height: auto;
     align-items: stretch;
-    background: #dddddd;
+    background:transparent;
     margin-top: 24px;
 
     @media screen and (max-width: 600px) {
@@ -14,7 +14,6 @@ export const Container = styled.div`
     }
 `
 
-// export const TitleTypo = styled.Typo\
 
 export const CtaWrapper = styled.div`
     display: flex;

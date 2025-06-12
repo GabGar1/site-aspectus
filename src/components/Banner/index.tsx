@@ -30,15 +30,15 @@ export function Banner(params: IBanner) {
     return (
         <Container>
             <CtaWrapper>
-                <Title level={1} style={{ color: "#3b0707", fontFamily: montserrat.style.fontFamily, fontSize: 42 }}>
+                <h1 style={{ color: "#2C2C2C", fontSize: 32 }}>
                     Mantenha seu carro seguro com uma oficina mecânica de confiança.
-                </Title>
-                <Text className="text-base" style={{ fontSize: "24px", fontFamily: lato.style.fontFamily }}>
+                </h1>
+                <p className="text-base" style={{ color: '#2C2C2C', fontSize: "20px" }}>
                     Qualidade, confiança e um preço justo – seu carro merece o melhor.
-                </Text>
+                </p>
                 <Button
                     type="primary"
-                    style={{ background: "#471c1c", fontFamily: inter.style.fontFamily, padding: 8, marginTop: 20 }}
+                    style={{ background: "#C8102E", fontFamily: inter.style.fontFamily, padding: 8, marginTop: 20 }}
                     onClick={() => window.open("https://wa.me/5541987205759?text=Ol%C3%A1%21%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es.%20Poderia%20me%20ajudar%3F", "_blank")}
                     size="large"
                 >

@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import { BenefitItem } from "../BenefitItem";
-import { Container } from "./styles";
+import { BenefitsWrapper, Container } from "./styles";
+import { Typography } from "antd";
 
 interface IBenefit {
     icon: ReactNode;
@@ -14,15 +15,23 @@ interface IBenefits {
 
 export function Benefits({ benefit_info }: IBenefits) {
     return (
-        <Container> 
-            {benefit_info.map((b, index) => (
-                <BenefitItem
-                    key={index}
-                    icon={b.icon}
-                    title={b.title}
-                    subtitle={b.subtitle}
-                />
-            ))}
+        <Container>
+            <h1 style={{
+                alignSelf: "center",
+                color: 'black',
+                fontSize: 32
+            }}
+            >Benefícios</h1>
+            <BenefitsWrapper>
+                {benefit_info.map((b, index) => (
+                    <BenefitItem
+                        key={index}
+                        icon={b.icon}
+                        title={b.title}
+                        subtitle={b.subtitle}
+                    />
+                ))}
+            </BenefitsWrapper>
         </Container>
     );
 }
