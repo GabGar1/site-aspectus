@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Montserrat } from "next/font/google";
 import "./globals.css";
+import StyledComponentsRegistry from "@/lib/registry";
+import { GlobalStyle } from "./styles/GlobalStyle";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -10,6 +12,12 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  variable: "--font-montserrat",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -23,11 +31,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="ptbr">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${montserrat.variable} antialiased`}
       >
-        {children}
+        <StyledComponentsRegistry>
+          <GlobalStyle />
+          {children}
+        </StyledComponentsRegistry>
       </body>
     </html>
   );

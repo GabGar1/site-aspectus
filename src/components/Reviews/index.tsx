@@ -24,19 +24,19 @@ export function Reviews(params: IReviews) {
     }, [reviews]);
     return (
         <Container>
-            <Title level={2} style={{ color: "white", textAlign: "center" }}>
+            <h1 style={{ color: "white", textAlign: "center", fontSize: 32 }}>
                 O que nossos clientes dizem
-            </Title>
+            </h1>
             <ReviewsWrapper>
                 {reviews.map((review, index) => (
                     <ReviewCard key={index}>
-                        <Text strong style={{ color: "white"}}>{review.name}</Text>
+                        <h1 style={{ color: "white", fontSize: 16}}>{review.name}</h1>
                         <StarsWrapper>
                             {[...Array(review.rating)].map((_, i) => (
                                 <StarFilled key={i} style={{ color: "#FFD700" }} />
                             ))}
                         </StarsWrapper>
-                        <Text style={{ color: "white"}}>{review.text}</Text>
+                        <p style={{ color: "white", fontSize: 12}}>{review.text}</p>
                     </ReviewCard>
                 ))}
             </ReviewsWrapper>

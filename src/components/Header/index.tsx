@@ -23,13 +23,10 @@ export function Header(params: IHeader) {
         label: <a onClick={item.onClick}>{item.label}</a>,
     }));
 
-    console.log("menu_items: ", menuItems);
-    console.log("width: ", maxWidth);
-
 
     return (
         <Container>
-            <Image src="/logo_aspectus.png" preview={false} style={{ width: 140, marginBottom: 4 }} />
+            <Image src="/logo_aspectus_real.png" preview={false} style={{maxWidth: 60}} />
             {maxWidth <= 600 ? (
                 <Dropdown menu={{ items: menuItems }} trigger={["click"]}>
                     <Button type="text" style={{ background: "black" }} icon={<MenuOutlined style={{ color: "white" }} />} />

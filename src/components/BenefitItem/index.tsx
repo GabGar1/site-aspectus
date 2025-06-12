@@ -13,15 +13,11 @@ export function BenefitItem(params: IBenefitItem) {
     const { icon, subtitle, title } = params;
 
     return (
-        <Flex vertical gap={56} align="center" style={{ maxWidth: 300 }}>
+        <Flex vertical gap={24} align="center" style={{ maxWidth: 300 }}>
             {icon}
             <Flex vertical align="center" >
-                <Title level={2}>
-                    {title}
-                </Title>
-                <Title level={5}>
-                    {subtitle}
-                </Title>
+                <h3 style={{color: 'black'}}>{title}</h3>
+                <p style={{color: 'black', fontSize: 14, textAlign: 'center'}}>{subtitle}</p>
             </Flex>
         </Flex>
 
