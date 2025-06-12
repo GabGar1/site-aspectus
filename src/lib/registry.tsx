@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React from 'react'
 import { StyleSheetManager } from 'styled-components'
 
 export default function StyledComponentsRegistry({
