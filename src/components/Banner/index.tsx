@@ -1,17 +1,7 @@
 "use client"
-import { Button, Image, Typography } from "antd";
+import { Button, Image } from "antd";
 import { Container, CtaWrapper, MediaWrapper } from "./styles";
-import { Montserrat, Lato, Inter } from "next/font/google";
-
-const montserrat = Montserrat({
-    subsets: ["latin"],
-    weight: "700",
-});
-
-const lato = Lato({
-    subsets: ["latin"],
-    weight: "400",
-});
+import { Inter } from "next/font/google";
 
 const inter = Inter({
     subsets: ["latin"],
@@ -21,8 +11,6 @@ const inter = Inter({
 interface IBanner {
     media: string,
 }
-
-const { Title, Text } = Typography
 
 export function Banner(params: IBanner) {
     const { media } = params;

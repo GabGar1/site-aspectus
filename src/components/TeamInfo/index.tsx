@@ -1,7 +1,6 @@
-import { Image, Typography } from "antd";
+import { Image } from "antd";
 import { Container, PersonInfo, TeamWrapper } from "./styles";
 
-const { Title, Paragraph } = Typography
 
 interface ITeamInfo {
     team_info: {

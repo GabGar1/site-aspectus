@@ -8,6 +8,7 @@ export default function StyledComponentsRegistry({
 }: {
   children: React.ReactNode
 }) {
+  //@ts-ignore
   const [styledComponentsStyleSheet] = useState(() => {
     const sheet = typeof window === 'undefined' ? null : new CSSStyleSheet()
     return sheet

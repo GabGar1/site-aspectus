@@ -1,8 +1,6 @@
 "use client"
 import { Banner, Benefits, Core, Footer, FormContact, Header, Reviews, TeamInfo } from "@/components";
-import Formulario from "@/components/Formulario";
 import { FundFilled, ScheduleFilled, SmileFilled } from "@ant-design/icons";
-import { Typography } from "antd";
 import { useRef } from "react";
 import { BenefitsRef, Container, HeaderWrapper, ReviewsRef, Section } from "./styles";
 
