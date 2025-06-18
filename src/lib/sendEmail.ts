@@ -4,10 +4,10 @@ export async function sendEmail({
   email,
   subject,
   message,
-  vehicleBrand = '',
-  vehicleModel = '',
-  vehicleYear = '',
-  contactPreference = '',
+  //vehicleBrand = '',
+  //vehicleModel = '',
+  //vehicleYear = '',
+  //contactPreference = '',
 }: {
   name: string;
   phone: string;

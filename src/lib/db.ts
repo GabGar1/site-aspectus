@@ -5,8 +5,8 @@ const MONGO_URI = process.env.MONGO_URI!;
 if (!MONGO_URI) {
   throw new Error('⚠️ Defina a variável de ambiente MONGO_URI no .env.local');
 }
-
-let cached = (global as any).mongoose || { conn: null, promise: null };
+//@ts-ignore
+const cached = (global as any).mongoose || { conn: null, promise: null };
 
 export async function connectDatabase() {
   if (cached.conn) {
