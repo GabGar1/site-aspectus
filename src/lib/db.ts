@@ -5,8 +5,17 @@ const MONGO_URI = process.env.MONGO_URI!;
 if (!MONGO_URI) {
   throw new Error('⚠️ Defina a variável de ambiente MONGO_URI no .env.local');
 }
-//@ts-ignore
-const cached = (global as any).mongoose || { conn: null, promise: null };
+interface MongooseCache {
+  conn: typeof mongoose | null;
+  promise: Promise<typeof mongoose> | null;
+}
+
+declare global {
+  // eslint-disable-next-line no-var
+  var mongoose: MongooseCache | undefined;
+}
+
+const cached: MongooseCache = global.mongoose || { conn: null, promise: null };
 
 export async function connectDatabase() {
   if (cached.conn) {
