@@ -34,7 +34,7 @@ export async function connectDatabase() {
   }
 
   cached.conn = await cached.promise;
-  (global as any).mongoose = cached;
+  global.mongoose = cached;
 
   return cached.conn;
 }
