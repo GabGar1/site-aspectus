@@ -11,7 +11,7 @@ export interface IContact extends mongoose.Document {
   vehicleModel?: string;
   vehicleYear?: string;
   contactPreference?: string;
-  createdAt: Date;
+  createdAt: string
 }
 
 const contactSchema = new Schema(
@@ -25,6 +25,7 @@ const contactSchema = new Schema(
     vehicleModel: { type: String, default: '' },
     vehicleYear: { type: String, default: '' },
     contactPreference: { type: String, default: '' },
+    createdAt: { type: String, default: () => new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' }) }
   },
   {
     timestamps: { createdAt: true, updatedAt: false },
