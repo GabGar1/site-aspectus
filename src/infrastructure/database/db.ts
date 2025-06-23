@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 const MONGO_URI = process.env.MONGO_URI!;
 
 if (!MONGO_URI) {
-  throw new Error('⚠️ Defina a variável de ambiente MONGO_URI no .env.local');
+  throw new Error('Error with URI');
 }
 interface MongooseCache {
   conn: typeof mongoose | null;

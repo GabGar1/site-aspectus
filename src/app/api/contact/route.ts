@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import mongoose from 'mongoose';
 import Contact from '@/lib/models/contact'; // Caminho relativo ajustado
-import { sendEmail } from '@/lib/sendEmail';
+import { sendEmail } from '@/infrastructure/email/sendEmail';
 
 const MONGO_URI = process.env.MONGO_URI!;
 

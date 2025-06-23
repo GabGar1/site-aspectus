@@ -1,7 +1,7 @@
 import mongoose, { Schema, models, model } from 'mongoose';
 
 
-export interface IContact extends mongoose.Document {
+export interface IContactDocument extends mongoose.Document {
   name: string;
   phone: string;
   email: string;
@@ -33,6 +33,6 @@ const contactSchema = new Schema(
 );
 
 // Previne erro de modelo já existente em ambiente serverless
-const Contact = models.Contact || model('Contact', contactSchema);
+const ContactModel = models.Contact || model('Contact', contactSchema);
 
-export default Contact;
+export default ContactModel;

@@ -35,7 +35,7 @@
 **⏱️ 1h a 1h30**
 
 ### 5️⃣ Variáveis de Ambiente na Vercel
-- [ ] Adicionar `MONGO_URI`, `MAIL_USER`, `MAIL_PASS`, `MAIL_TO`
+- [ x ] Adicionar `MONGO_URI`, `MAIL_USER`, `MAIL_PASS`, `MAIL_TO`
 - [ ] Testar deploy em produção
 **⏱️ 20 a 40 min**
 
@@ -105,4 +105,138 @@
 - API Serverless funcionando (salva no Mongo + envia e-mail)
 - Front refinado, estilizado 100% com Styled Components, responsivo, interativo e otimizado
 - Código organizado, consistente e preparado para escalar
+
+## 🚀 Roadmap - Refatoração com Clean Architecture + SPI + React Query
+
+### 🎯 Objetivo
+Organizar o projeto tanto no frontend quanto no backend aplicando os conceitos de:
+- Clean Architecture
+- SPI (Service Provider Interface)
+- Hooks customizados
+- React Query para gestão de estado assíncrono no frontend
+
+---
+
+## 🏗️ Backend (Next API - Serverless na Vercel)
+
+### 🗂️ Organização de Pastas
+- `/src`
+  - `/app/api`
+  - `/domain`
+    - `/entities`
+    - `/repositories`
+    - `/services`
+  - `/application`
+    - `/use-cases`
+  - `/infrastructure`
+    - `/database`
+    - `/email`
+  - `/lib`
+
+**⏱️ 30 a 60 minutos** (estrutura e mover arquivos)
+**⏱️ ✅ Finalizado**
+---
+
+### 🔗 Conexão com Banco (Mongo)
+- Revisar arquivo `db.ts` na camada `/infrastructure/database`
+- Implementar cache de conexão corretamente
+- Garantir que está fora do escopo da rota
+
+**⏱️ 30 minutos**
+
+---
+
+### 📨 Serviço de Email (SPI)
+- Criar contrato: `/domain/services/IEmailService.ts`
+- Criar implementação: `/infrastructure/email/BrevoEmailService.ts`
+- Adaptar envio de email na rota para usar o serviço via injeção
+
+**⏱️ 40 minutos a 1h**
+
+---
+
+### 🗄️ Repository (SPI para Banco)
+- Criar contrato: `/domain/repositories/IContactRepository.ts`
+- Criar implementação: `/infrastructure/database/MongoContactRepository.ts`
+- O repository gerencia persistência no banco
+
+**⏱️ 1h**
+
+---
+
+### 💡 Use Cases
+- Criar `/application/use-cases/CreateContact.ts`
+- Esse arquivo orquestra o fluxo: validar dados → salvar no DB → disparar email
+- A rota só chama o use case, ela não sabe nada de infraestrutura
+
+**⏱️ 1h a 1h30**
+
+---
+
+### 🔥 Refatorar Rotas
+- As rotas apenas recebem a request, chamam o use case e respondem.
+- Toda regra de negócio, db e email ficam nas camadas certas.
+
+**⏱️ 40 minutos**
+
+---
+
+## 🎨 Frontend (React + Next + React Query + Hooks)
+
+### 🗂️ Organização de Pastas
+- `/src`
+  - `/hooks`
+  - `/services` (fetchers)
+  - `/components`
+  - `/lib`
+
+**⏱️ 30 minutos**
+
+---
+
+### 🔗 Setup React Query
+- Instalar e configurar Provider no `_app.tsx`
+- Configurar devtools para query
+
+**⏱️ 20 minutos**
+
+---
+
+### 🪝 Hooks Customizados
+- Criar hook para envio de contato: `/hooks/useContact.ts`
+- Hook gerencia mutation, loading, sucesso e erro
+
+**⏱️ 40 minutos**
+
+---
+
+### 🔌 Service (Fetcher)
+- Criar função que faz a chamada HTTP: `/services/contactService.ts`
+- O hook consome o service, mantendo separação
+
+**⏱️ 30 minutos**
+
+---
+
+### 🔥 Refatorar Formulário
+- Usar o hook no form
+- Gerenciar estado com React Query ao invés de states manuais
+
+**⏱️ 1h**
+
+---
+
+## 🏁 Checkpoint Final
+- [ ] Backend com Clean Architecture + SPI funcionando
+- [ ] Frontend consumindo via hooks e React Query
+- [ ] Projeto escalável, performático e limpo
+
+---
+
+## 🚦 Tempo Total Estimado
+**8h a 10h (focado e sem interrupções)**  
+Ou dividir em **2 a 3 dias**, dependendo do ritmo.
+
+---
+
 
