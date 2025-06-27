@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import mongoose from 'mongoose';
-import Contact from '@/lib/models/contact'; // Caminho relativo ajustado
-import { sendEmail } from '@/infrastructure/email/sendEmail';
+import { createContact } from '@/domain/spi';
 
 const MONGO_URI = process.env.MONGO_URI!;
 
@@ -35,8 +34,7 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  try {
-    const newContact = new Contact({
+    const result = await createContact.execute({
       name,
       phone,
       email,
@@ -48,18 +46,12 @@ export async function POST(req: NextRequest) {
       contactPreference
     });
 
-    const savedContact = await newContact.save();
+    if (result.isErr()) {
+      return NextResponse.json(
+        { error: result.error.message },
+        { status: 500 }
+      )
+    }
 
-    sendEmail(data).catch((error) => {
-      console.error('Erro ao enviar email:', error);
-    });
-
-    return NextResponse.json(savedContact, { status: 201 });
-  } catch (error) {
-    console.error('Erro ao criar contato:', error);
-    return NextResponse.json(
-      { error: 'Erro interno do servidor.' },
-      { status: 500 }
-    );
-  }
+    return NextResponse.json(result.value, { status: 201 });
 }

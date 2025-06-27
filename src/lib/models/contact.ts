@@ -32,7 +32,5 @@ const contactSchema = new Schema(
   }
 );
 
-// Previne erro de modelo já existente em ambiente serverless
-const ContactModel = models.Contact || model('Contact', contactSchema);
+export const ContactModel = models.Contact || model('Contact', contactSchema);
 
-export default ContactModel;

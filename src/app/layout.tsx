@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
-import StyledComponentsRegistry from "@/lib/registry";
-import { GlobalStyle } from "./styles/GlobalStyle";
+import ClientProviders from "./ClientProviders";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -25,10 +24,9 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} antialiased`}
       >
-        <StyledComponentsRegistry>
-          <GlobalStyle />
+        <ClientProviders>
           {children}
-        </StyledComponentsRegistry>
+        </ClientProviders>
       </body>
     </html>
   );

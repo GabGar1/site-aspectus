@@ -1,17 +1,21 @@
+"use client"
+
 import { Button, Flex, message } from "antd";
 import React, { useState } from "react";
 import { Container, DescriptionForm, FormContent, FormWrapper, Label, LabelInputWrapper, StyledInput } from "./style";
+import { useCreateContact } from "@/domain/services/contacts/create";
 
 
 export function FormContact() {
     const [messageApi, contextHolder] = message.useMessage();
+    const {mutate} = useCreateContact()
 
     function formatPhone(value: string) {
         return value
-            .replace(/\D/g, '') // remove tudo que não for número
-            .replace(/^(\d{2})(\d)/, '($1) $2') // (99) 9...
-            .replace(/(\d{5})(\d)/, '$1-$2')   // (99) 99999-9999
-            .slice(0, 15); // limita o tamanho final
+            .replace(/\D/g, '') 
+            .replace(/^(\d{2})(\d)/, '($1) $2') 
+            .replace(/(\d{5})(\d)/, '$1-$2') 
+            .slice(0, 15);
     }
 
     const [formData, setFormData] = useState({
@@ -19,16 +23,17 @@ export function FormContact() {
         phone: "",
         email: "",
         message: "",
+        status: true
     });
 
-    const success = () => {
+    const successToast = () => {
         messageApi.open({
             type: 'success',
             content: 'Contato enviado com sucesso!',
         });
     };
 
-    const error = () => {
+    const errorToast = () => {
         messageApi.open({
             type: 'error',
             content: 'Erro ao enviar contato!',
@@ -47,23 +52,16 @@ export function FormContact() {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        try {
-            const response = await fetch('api/contact', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData),
-            })
-
-            if (response.ok) {
-                success()
-                setFormData({ name: '', phone: '', email: '', message: '' })
-            } else {
-                error()
+        mutate({...formData}, {
+            onSuccess: () => {
+                setFormData({ name: '', phone: '', email: '', message: '', status: true })
+                successToast()
+            },
+            onError: (error: unknown) => {
+                console.error('Erro ao enviar o contato', error);
+                errorToast()
             }
-        } catch (error) {
-            console.error('Erro:', error);
-            alert('Erro de conexão.');
-        }
+        })
     }
 
     return (

@@ -1,17 +1,18 @@
+
 import { Contact, IContact } from "@/domain/entities/contact";
 import { IRepository } from "../IRepository";
 import { err, ok, Result } from "neverthrow";
-import ContactModel from "@/lib/models/contact";
+import { ContactModel } from "@/lib/models/contact";
 
 interface IContactRepositoryFind {
     search?: string;
 }
-
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface IContactRepository extends IRepository<Contact, Error, IContactRepositoryFind> {
 
 }
 
-export class ContactRepositoryMongo implements IContactRepository {
+export class ContactRepositoryMongo implements IRepository<Contact, Error, IContactRepositoryFind> {
 
     async create(entity: Contact): Promise<Result<Contact, Error>> {
         try {
@@ -93,7 +94,7 @@ export class ContactRepositoryMongo implements IContactRepository {
         try {
             const { search } = params;
 
-            const query: any = { status: true };
+            const query: Record<string, unknown> = { status: true };
 
             if (search) {
                 query.name = { $regex: search, $options: 'i' };

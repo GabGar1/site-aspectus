@@ -69,7 +69,7 @@ export class Contact extends Entity implements IContact {
         this.updatedAt = new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' })
     }
 
-    public delete_folder() {
+    public delete_contact() {
         this.status = false;
         this.deletedAt = new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' })
     }
