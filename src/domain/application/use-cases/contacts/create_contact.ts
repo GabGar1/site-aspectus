@@ -39,7 +39,9 @@ export class CreateContact {
             const contact = contact_created.value;
 
             try {
-                await this.email_service.send(params);
+                void this.email_service.send(params).catch((err) => {
+                    console.error("Erro ao enviar email:", err);
+                });
             } catch (error) {
                 console.error("Erro ao enviar email:", error);
             }
