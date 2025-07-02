@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Aspectus Auto Mecânica - Website
 
-## Getting Started
+Site institucional desenvolvido com foco em captação de leads para a oficina Aspectus Auto Mecânica. O site permite que usuários entrem em contato diretamente através de um formulário, que salva os dados no banco e envia notificação por email ou botão de CTA inciando conversa no WhatsApp.
 
-First, run the development server:
+---
+
+## 🔧 Tecnologias
+
+- [Next.js 15](https://nextjs.org/)
+- TypeScript
+- MongoDB Atlas (Mongoose)
+- Email via [Brevo (ex-Sendinblue)](https://www.brevo.com/)
+- StyledComponents
+- ANTD
+- Neverthrow
+- React Query
+- Vercel (deploy)
+
+---
+
+## ✨ Funcionalidades
+
+- Formulário de contato com envio de email
+- Armazenamento de leads no banco de dados
+- Botão de WhatsApp como CTA, abrindo o chat direto com a oficina
+- Validação de campos obrigatórios
+- Layout responsivo
+- Deploy com preview automático na Vercel
+
+---
+
+## 🚀 Instalação e uso local
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+# Clone o repositório
+git clone https://github.com/GabGar1/site-aspectus
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Acesse a pasta
+cd site-aspectus
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# Instale as dependências
+yarn
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Configure as variáveis de ambiente
+cp .env.example .env.local
 
-## Learn More
+# `.env.local` esperado:
 
-To learn more about Next.js, take a look at the following resources:
+Crie um arquivo `.env.local` com as seguintes variáveis:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# .env.example
+MONGO_URI=mongodb+srv://<usuario>:<senha>@cluster.mongodb.net/
+BREVO_API_KEY=sua-chave-aqui
+EMAIL_DESTINATION=seu@email.com
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🚧 Próximos Passos
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Resolver timeout na Vercel durante chamadas à API
+- Mover envio de email para background com fila
+- Adicionar testes automatizados (unitários e de integração)
+- Melhorar tratamento de erros e exibição de feedback ao usuário
