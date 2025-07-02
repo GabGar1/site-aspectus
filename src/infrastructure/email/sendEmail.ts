@@ -22,6 +22,9 @@ export async function sendEmail({
   const apiKey = process.env.BREVO_API_KEY;
   const emailDestination = process.env.EMAIL_DESTINATION;
 
+  console.log(apiKey, emailDestination);
+  
+
   if (!apiKey || !emailDestination) {
     throw new Error('Missing BREVO_API_KEY or EMAIL_DESTINATION');
   }

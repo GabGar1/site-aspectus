@@ -8,13 +8,13 @@ import { useCreateContact } from "@/domain/services/contacts/create";
 
 export function FormContact() {
     const [messageApi, contextHolder] = message.useMessage();
-    const {mutate} = useCreateContact()
+    const { mutate } = useCreateContact()
 
     function formatPhone(value: string) {
         return value
-            .replace(/\D/g, '') 
-            .replace(/^(\d{2})(\d)/, '($1) $2') 
-            .replace(/(\d{5})(\d)/, '$1-$2') 
+            .replace(/\D/g, '')
+            .replace(/^(\d{2})(\d)/, '($1) $2')
+            .replace(/(\d{5})(\d)/, '$1-$2')
             .slice(0, 15);
     }
 
@@ -52,17 +52,27 @@ export function FormContact() {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        mutate({...formData}, {
+
+        mutate({ ...formData }, {
             onSuccess: () => {
-                setFormData({ name: '', phone: '', email: '', message: '', status: true })
-                successToast()
+                fetch('/api/contact/send-email', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData),
+                }).catch(err => {
+                    console.error('Falha no envio do email:', err);
+                });
+
+                setFormData({ name: '', phone: '', email: '', message: '', status: true });
+                successToast();
             },
             onError: (error: unknown) => {
                 console.error('Erro ao enviar o contato', error);
-                errorToast()
+                errorToast();
             }
-        })
-    }
+        });
+    };
+
 
     return (
         <Container>
