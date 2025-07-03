@@ -8,7 +8,6 @@ export default function StyledComponentsRegistry({
 }: {
   children: React.ReactNode
 }) {
-  // Removed unused styledComponentsStyleSheet state
 
   return <StyleSheetManager>{children}</StyleSheetManager>
 }
