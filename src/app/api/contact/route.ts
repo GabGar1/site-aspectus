@@ -1,38 +1,26 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createContact } from '@/domain/spi';
 import { connectDatabase } from '@/infrastructure/database/db';
+import { Client } from '@upstash/qstash';
 
+const qstash = new Client({
+  token: process.env.QSTASH_TOKEN!,
+})
 export async function POST(req: NextRequest) {
-  try {
-    await connectDatabase();
-
     const data = await req.json();
 
-    const { name, phone, email, subject = '', message, vehicleBrand = '', vehicleModel = '', vehicleYear = '', contactPreference = '' } = data;
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL!;
 
-    if (!name || !phone || !email || !message) {
-      return NextResponse.json({ error: 'Campos obrigatórios faltando.' }, { status: 400 });
-    }
-
-    const result = await createContact.execute({
-      name,
-      phone,
-      email,
-      subject,
-      message,
-      vehicleBrand,
-      vehicleModel,
-      vehicleYear,
-      contactPreference,
+    await qstash.publishJSON({
+      url: `${baseUrl}/api/contact/process-contact`,
+      data: data,
     });
 
-    if (result.isErr()) {
-      return NextResponse.json({ error: result.error.message }, { status: 500 });
-    }
+    await qstash.publishJSON({
+      url: `${baseUrl}/api/contact/send-email`,
+      data: data,
+    });
 
-    return NextResponse.json(result.value, { status: 201 });
-  } catch (error) {
-    console.error('Erro na rota contact:', error);
-    return NextResponse.json({ error: 'Erro interno no servidor' }, { status: 500 });
-  }
+    return NextResponse.json({status: 'enfileirado'})
+    
 }
