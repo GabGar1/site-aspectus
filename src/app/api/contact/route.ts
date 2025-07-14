@@ -1,6 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createContact } from '@/domain/spi';
-import { connectDatabase } from '@/infrastructure/database/db';
 import { Client } from '@upstash/qstash';
 
 const qstash = new Client({
