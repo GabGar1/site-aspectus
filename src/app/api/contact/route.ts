@@ -7,7 +7,12 @@ const qstash = new Client({
 export async function POST(req: NextRequest) {
     const data = await req.json();
 
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL!;
+    const baseUrl =
+    process.env.NODE_ENV === 'production'
+      ? 'https://site-aspectus.vercel.app'
+      : process.env.NEXT_PUBLIC_VERCEL_URL
+      ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+      : 'http://localhost:3000';
 
     await qstash.publishJSON({
       url: `${baseUrl}/api/contact/process-contact`,
