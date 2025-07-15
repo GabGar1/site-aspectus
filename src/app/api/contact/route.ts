@@ -5,26 +5,24 @@ const qstash = new Client({
   token: process.env.QSTASH_TOKEN!,
 })
 export async function POST(req: NextRequest) {
-    const data = await req.json();
+  const data = await req.json();
 
-    const baseUrl =
-    process.env.NODE_ENV === 'production'
+  const baseUrl =
+    process.env.VERCEL_ENV === 'production'
       ? 'https://site-aspectus.vercel.app'
-      : process.env.NEXT_PUBLIC_VERCEL_URL
-      ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
-      : 'http://localhost:3000';
+      : `https://${process.env.VERCEL_URL}`;
 
-    console.log('🔁 Enviando para:', `${baseUrl}/api/contact/process-contact`);
-    await qstash.publishJSON({
-      url: `${baseUrl}/api/contact/process-contact`,
-      body: data,
-    });
+  console.log('🔁 Enviando para:', `${baseUrl}/api/contact/process-contact`);
+  await qstash.publishJSON({
+    url: `${baseUrl}/api/contact/process-contact`,
+    body: data,
+  });
 
-    await qstash.publishJSON({
-      url: `${baseUrl}/api/contact/send-email`,
-      body: data,
-    });
+  await qstash.publishJSON({
+    url: `${baseUrl}/api/contact/send-email`,
+    body: data,
+  });
 
-    return NextResponse.json({status: 'enfileirado'})
-    
+  return NextResponse.json({ status: 'enfileirado' })
+
 }
