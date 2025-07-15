@@ -16,12 +16,12 @@ export async function POST(req: NextRequest) {
 
     await qstash.publishJSON({
       url: `${baseUrl}/api/contact/process-contact`,
-      data: data,
+      body: data,
     });
 
     await qstash.publishJSON({
       url: `${baseUrl}/api/contact/send-email`,
-      data: data,
+      body: data,
     });
 
     return NextResponse.json({status: 'enfileirado'})
