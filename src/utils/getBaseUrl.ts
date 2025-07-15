@@ -1,7 +1,11 @@
 export function getBaseUrl() {
-  return process.env.VERCEL_ENV === 'production'
-    ? 'https://site-aspectus.vercel.app'
-    : process.env.VERCEL_URL
-      ? `https://${process.env.VERCEL_URL}`
-      : 'https://siteaspectus-git-develop-gabriels-projects-1791a7c8.vercel.app';
+  if (process.env.PUBLIC_BASE_URL) {
+    return process.env.PUBLIC_BASE_URL;
+  }
+
+  if (process.env.NEXT_PUBLIC_VERCEL_URL) {
+    return `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`;
+  }
+
+  return 'http://localhost:3000';
 }
