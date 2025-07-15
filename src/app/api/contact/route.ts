@@ -14,6 +14,7 @@ export async function POST(req: NextRequest) {
       ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
       : 'http://localhost:3000';
 
+    console.log('🔁 Enviando para:', `${baseUrl}/api/contact/process-contact`);
     await qstash.publishJSON({
       url: `${baseUrl}/api/contact/process-contact`,
       body: data,
