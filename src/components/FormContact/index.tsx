@@ -55,14 +55,6 @@ export function FormContact() {
 
         mutate({ ...formData }, {
             onSuccess: () => {
-                fetch('/api/contact/send-email', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(formData),
-                }).catch(err => {
-                    console.error('Falha no envio do email:', err);
-                });
-
                 setFormData({ name: '', phone: '', email: '', message: '', status: true });
                 successToast();
             },
