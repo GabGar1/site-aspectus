@@ -10,7 +10,6 @@ export async function POST(req: NextRequest) {
 
   const baseUrl = getBaseUrl();
 
-  console.log('🔁 Enviando para:', `${baseUrl}/api/contact/process-contact`);
   await qstash.publishJSON({
     url: `${baseUrl}/api/contact/process-contact`,
     body: data,
