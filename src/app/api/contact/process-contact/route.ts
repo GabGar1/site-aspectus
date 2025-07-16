@@ -1,20 +1,14 @@
+import { verifySignatureAppRouter } from '@upstash/qstash/nextjs';
 import { NextRequest, NextResponse } from 'next/server';
 import { connectDatabase } from '@/infrastructure/database/db';
 import { createContact } from '@/domain/spi';
 
-export const POST = (async (req: NextRequest) => {
+export const POST = verifySignatureAppRouter(async (req: NextRequest) => {
   try {
-    console.log('Requisição recebida');
-
     const data = await req.json();
-    console.log('JSON recebido:', data);
-
-    console.log('Conectando ao Mongo...');
     await connectDatabase();
-    console.log('Conectado ao Mongo!');
 
     const result = await createContact.execute(data);
-    console.log('Resultado do createContact:', result);
 
     if (result.isErr()) {
       console.error('Erro ao salvar contato:', result.error.message);
